@@ -1,19 +1,18 @@
 import './App.css';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import Header from './components/Header.js';
-import { useContext } from 'react';
-import { UserContext } from './components/context/UserContext.js';
+import { useUser } from './components/context/UserContext.js';
 import Auth from './components/Auth.js';
 import Tasks from './components/Tasks.js';
 
 function App() {
-  const { user } = useContext(UserContext);
+  const { user } = useUser();
   return (
     <div className="App">
       <Header />
       <Switch>
-        <Route path="/auth/:type" component={Auth} />
-        <Route path="/tasks" component={Tasks} />
+        <Route exact path="/auth/:type" component={Auth} />
+        <Route exact path="/tasks" component={Tasks} />
         <Route exact path="/">
           <>
             {user && <Redirect to="/tasks" />}

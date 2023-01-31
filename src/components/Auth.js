@@ -1,14 +1,14 @@
 import React from 'react';
 import { NavLink, useParams, Redirect } from 'react-router-dom';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { authUser } from '../services/auth.js';
-import { UserContext } from './context/UserContext.js';
+import { useUser } from './context/UserContext.js';
 
 export default function Auth() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const { type } = useParams();
-  const { user, setUser } = useContext(UserContext);
+  const { user, setUser } = useUser();
   if (user) {
     return <Redirect to="/tasks" />;
   }
@@ -43,7 +43,7 @@ export default function Auth() {
           onChange={(e) => setPassword(e.target.value)}
         />
         <div className="button">
-          <button onClick={submitAuth}>Submit</button>
+          <button>Submit</button>
         </div>
       </form>
     </div>

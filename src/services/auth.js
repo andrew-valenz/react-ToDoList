@@ -14,3 +14,5 @@ export async function authUser(email, password, type) {
   // add error handling
   return response.user;
 }
+
+//async function for sign out

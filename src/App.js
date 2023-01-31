@@ -12,12 +12,11 @@ function App() {
     <div className="App">
       <Header />
       <Switch>
-        <Route path="auth/:type" component={Auth} />
         <Route path="/auth/:type" component={Auth} />
-        <Route path="/items" component={Tasks} />
+        <Route path="/tasks" component={Tasks} />
         <Route exact path="/">
           <>
-            {user && <Redirect to="/items" />}
+            {user && <Redirect to="/tasks" />}
             {!user && <Redirect to="/auth/sign-in" />}
           </>
         </Route>

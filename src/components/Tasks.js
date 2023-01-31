@@ -3,9 +3,9 @@ import { Redirect } from 'react-router-dom';
 import { useUser } from './context/UserContext.js';
 
 export default function Tasks() {
-  const user = useUser;
+  const { user } = useUser;
   if (!user) {
     return <Redirect to="/auth/sign-in" />;
   }
-  return <div>Tasks</div>;
+  return <p>Tasks go here</p>;
 }

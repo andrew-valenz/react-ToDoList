@@ -5,13 +5,16 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { UserProvider } from './components/context/UserContext.js';
 import { BrowserRouter } from 'react-router-dom';
+import { TasksProvider } from './components/context/TaskContext.js';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <BrowserRouter>
       <UserProvider>
-        <App />
+        <TasksProvider>
+          <App />
+        </TasksProvider>
       </UserProvider>
     </BrowserRouter>
   </React.StrictMode>

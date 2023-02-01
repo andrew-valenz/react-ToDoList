@@ -1,5 +1,6 @@
 import { useEffect } from 'react';
 import { createContext, useState } from 'react';
+import { getTaskList } from '../../services/tasks.js';
 
 const TasksContext = createContext();
 
@@ -8,8 +9,8 @@ const TasksProvider = ({ children }) => {
   useEffect(() => {
     const fetchTasks = async () => {
       try {
-        const data = await getTaskItems();
-        setItems(data);
+        const data = await getTaskList();
+        setTasks(data);
       } catch (e) {
         console.error(e.message);
       }

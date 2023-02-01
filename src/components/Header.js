@@ -17,7 +17,7 @@ export default function Header() {
     <header>
       {user && (
         <nav>
-          <h1>To Do List Ap!</h1>
+          <h1>To Do List App!</h1>
           <p>Hello {user.email}</p>
           <button onClick={handleLogout}>Sign-out</button>
         </nav>

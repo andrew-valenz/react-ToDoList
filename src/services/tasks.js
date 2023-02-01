@@ -5,3 +5,9 @@ export async function getTaskList() {
   return checkError(response);
 }
 getTaskList();
+
+export async function createTask(description) {
+  const response = await client.from('task-list').insert([{ description }]).single();
+  return checkError(response);
+}
+createTask();
